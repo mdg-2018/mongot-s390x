@@ -1,0 +1,5 @@
+compose.yaml
+test
+mongodb-search.tar
+mongot-community-local-docker.tar
+send-to-k3s-vm.sh

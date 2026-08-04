@@ -1,0 +1,9 @@
+# MongoDBSearch settings
+search:
+  # Full Search container image url used for the MongoDB Search container will be constructed as {search.repo}/{search.name}:{search.version}
+  # Change search.repo to point to your local registry!
+  repo: registry.lab
+  name: mongodb-search
+  version: 1.70.1
+  envoyImage: envoyproxy/envoy:v1.37-latest
+  metricsForwarderImage: otel/opentelemetry-collector-contrib:0.152.0
