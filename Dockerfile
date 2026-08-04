@@ -49,7 +49,9 @@ EXPOSE 27028 9946
 ENV JAVA_HOME=/usr/lib/jvm/jre-21-openjdk
 
 # Force mongot to use jre-21-openjdk
-RUN ln -s /usr/lib/jvm/jre-21-openjdk /mongot-community/bin/jdk
+RUN rm -rf /mongot-community/bin/jdk && \
+    ln -s /usr/lib/jvm/jre-21-openjdk /mongot-community/bin/jdk
+# ln -s /usr/lib/jvm/jre-21-openjdk /mongot-community/bin/jdk
 
 # Default command: run mongot with the default config
 # Users can override the config by mounting a custom config.default.yml
