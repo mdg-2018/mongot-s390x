@@ -46,7 +46,7 @@ USER mongot
 # 9946: Metrics port
 EXPOSE 27028 9946
 
-ENV JAVA_HOME=/usr/lib/jvm/java-21-openjdk
+ENV JAVA_HOME=/usr/lib/jvm/jre-21-openjdk
 
 # Default command: run mongot with the default config
 # Users can override the config by mounting a custom config.default.yml
