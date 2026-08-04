@@ -1,0 +1,17 @@
+# Compose file for local testing in podman/docker
+
+services:
+  mongot:
+    image: mongodb-search:1.70.1
+    ports:
+      - "27028:27028"
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: quay.io/mongodb/mongodb-enterprise-server:latest
+    ports:
+      - "27018:27018"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
