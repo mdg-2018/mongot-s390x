@@ -1,0 +1,23 @@
+syncSource:
+   replicaSet:
+      hostAndPort: "mongodb-enterprise:27017"
+      username: root
+      passwordFile: /tmp/mongodb-enterprise-root-password
+storage:
+   dataPath: /data/mongot
+server:
+   grpc:
+      address: <string>
+      tls:
+         mode: <string>
+         certificateKeyFile: <string>
+         caFile: <string>
+   name: <string>
+metrics:
+   enabled: <boolean>
+   address: <boolean>
+healthCheck:
+   address: <string>
+logging:
+   verbosity: <string>
+   logPath: <string>
