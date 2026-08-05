@@ -3,6 +3,7 @@
 if [ "$1" == "start" ]; then
     # Generate a mongodb replica set keyfile
     openssl rand -base64 756 > ./keyfile
+    chmod 400 ./keyfile
 
     # Run mongodb enterprise container
     podman run --replace --name mongodb-enterprise -d -p 27027:27027 \
