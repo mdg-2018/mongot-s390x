@@ -9,5 +9,5 @@ RUN mkdir -p /data/db
 
 EXPOSE 27017
 
-CMD ["/usr/bin/mongod", "-f", "/etc/mongod.conf"]
+CMD ["/usr/bin/mongod", "-f", "/etc/mongod-1.conf"]
 

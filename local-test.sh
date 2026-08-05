@@ -8,8 +8,8 @@ if [ "$1" == "start" ]; then
     podman run --replace --name mongodb-enterprise -d -p 27027:27027 \
     -e MONGO_INITDB_ROOT_USERNAME=root \
     -e MONGO_INITDB_ROOT_PASSWORD=password \
-    -v $(pwd)/keyfile:/keyfile:ro,Z \
-    -v $(pwd)/local-test-mongod-config.yaml:/etc/mongod.conf:ro,Z \
+    -v $(pwd)/keyfile:/keyfile \
+    -v $(pwd)/local-test-mongod-config.yaml:/etc/mongod-1.conf \
     mongodb-enterprise-server:8.3
 
     # Write root password file to be mounted in mongot
@@ -17,8 +17,8 @@ if [ "$1" == "start" ]; then
 
     # Run mongodb search container
     podman run --replace --name mongodb-search -d -p 27028:27028 \
-    -v $(pwd)/mongodb-enterprise-root-password:/tmp/mongodb-enterprise-root-password:ro,Z \
-    -v $(pwd)/local-test-config.yaml:/mongot-community/config.default.yml:ro,Z \
+    -v $(pwd)/mongodb-enterprise-root-password:/tmp/mongodb-enterprise-root-password \
+    -v $(pwd)/local-test-config.yaml:/mongot-community/config.default.yml \
     mongodb-search:1.70.1
 
 elif [ "$1" == "stop" ]; then
