@@ -6,3 +6,6 @@ syncSource:
         passwordFile: /tmp/mongodb-enterprise-root-password
 storage:
    dataPath: /data/mongot
+server:
+   grpc:
+      address: "mongodb-search:27028"
