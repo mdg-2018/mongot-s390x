@@ -1,10 +1,15 @@
 #!/bin/bash
 
 if [ "$1" == "start" ]; then
+    # Generate a mongodb replica set keyfile
+    openssl rand -base64 756 > ./keyfile
+
     # Run mongodb enterprise container
     podman run --name mongodb-enterprise -d -p 27017:27017 \
     -e MONGO_INITDB_ROOT_USERNAME=root \
-    -e MONGO_INITDB_ROOT_PASSWORD=password quay.io/mongodb/mongodb-enterprise-server:8.3.7-ubi9
+    -e MONGO_INITDB_ROOT_PASSWORD=password \
+    -v $(pwd)/keyfile:/keyfile \
+    mongodb-enterprise-server:8.3
 
     # Write root password file to be mounted in mongot
     echo "password" > ./mongodb-enterprise-root-password
