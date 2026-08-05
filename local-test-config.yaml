@@ -1,7 +1,8 @@
 syncSource:
    replicaSet:
-      hostAndPort: "mongodb-enterprise:27017"
-      username: root
-      passwordFile: /tmp/mongodb-enterprise-root-password
+      hostAndPort: "mongodb-enterprise:27027"
+      scramAuth:
+        username: root
+        passwordFile: /tmp/mongodb-enterprise-root-password
 storage:
    dataPath: /data/mongot
