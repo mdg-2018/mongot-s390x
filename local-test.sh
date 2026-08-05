@@ -8,8 +8,8 @@ if [ "$1" == "start" ]; then
     podman run --replace --name mongodb-enterprise -d -p 27027:27027 \
     -e MONGO_INITDB_ROOT_USERNAME=root \
     -e MONGO_INITDB_ROOT_PASSWORD=password \
-    -v $(pwd)/keyfile:/keyfile \
-    -v $(pwd)/local-test-mongod-config.yaml:/etc/mongod.conf \
+    -v $(pwd)/keyfile:/keyfile:ro \
+    -v $(pwd)/local-test-mongod-config.yaml:/etc/mongod.conf:ro \
     mongodb-enterprise-server:8.3
 
     # Write root password file to be mounted in mongot
