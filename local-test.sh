@@ -5,7 +5,7 @@ if [ "$1" == "start" ]; then
     openssl rand -base64 756 > ./keyfile
 
     # Run mongodb enterprise container
-    podman run --name mongodb-enterprise -d -p 27027:27027 \
+    podman run --replace --name mongodb-enterprise -d -p 27027:27027 \
     -e MONGO_INITDB_ROOT_USERNAME=root \
     -e MONGO_INITDB_ROOT_PASSWORD=password \
     -v $(pwd)/keyfile:/keyfile \
@@ -16,7 +16,7 @@ if [ "$1" == "start" ]; then
     echo "password" > ./mongodb-enterprise-root-password
 
     # Run mongodb search container
-    podman run --name mongodb-search -d -p 27028:27028 \
+    podman run --replace --name mongodb-search -d -p 27028:27028 \
     -v $(pwd)/mongodb-enterprise-root-password:/tmp/mongodb-enterprise-root-password \
     -v $(pwd)/local-test-config.yaml:/mongot-community/config.default.yml \
     mongodb-search:1.70.1
