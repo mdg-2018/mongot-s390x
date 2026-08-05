@@ -12,8 +12,8 @@ RUN yum update -y && \
 # RUN groupadd -r -g 999 mongot && \
 #     useradd -r -u 999 -g mongot -s /bin/bash -d /mongot-community mongot
 
-RUN groupadd -r mongot && \
-    useradd -r -g mongot -s /bin/bash -d /mongot-community mongot
+# RUN groupadd -r mongot && \
+#     useradd -r -g mongot -s /bin/bash -d /mongot-community mongot
 
 WORKDIR /mongot-community
 
@@ -27,19 +27,20 @@ RUN tar -xf /tmp/mongot-community.tar -C /mongot-community --strip-components=1 
 
 RUN chmod +x /mongot-community/mongot
 
-RUN chown -R mongot:mongot /mongot-community
+# RUN chown -R mongot:mongot /mongot-community
 
 # Create data directory with proper permissions
 # The volume will be mounted here, so we need to ensure the directory exists
 # and the mongot user has the right UID/GID
 RUN mkdir -p /data/mongot && \
-    chown -R mongot:mongot /data/mongot && \
     chmod -R 755 /data/mongot
+    # chown -R mongot:mongot /data/mongot && \
+    
 
 VOLUME ["/data/mongot"]
 
-# Switch to mongot user
-USER mongot
+# # Switch to mongot user
+# USER mongot
 
 # Expose default ports
 # 27028: Query server port

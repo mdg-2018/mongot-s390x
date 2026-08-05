@@ -16,7 +16,6 @@ if [ "$1" == "start" ]; then
     # Write root password file to be mounted in mongot
     echo "password" > ./mongodb-enterprise-root-password
     chmod 400 ./mongodb-enterprise-root-password
-    chown mongot:mongot ./mongodb-enterprise-root-password
 
     # Run mongodb search container
     podman run --replace --name mongodb-search -d -p 27028:27028 \
