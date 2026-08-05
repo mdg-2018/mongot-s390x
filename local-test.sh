@@ -5,7 +5,7 @@ if [ "$1" == "start" ]; then
     openssl rand -base64 756 > ./keyfile
 
     # Run mongodb enterprise container
-    podman run --name mongodb-enterprise -d -p 27017:27017 \
+    podman run --name mongodb-enterprise -d -p 27027:27027 \
     -e MONGO_INITDB_ROOT_USERNAME=root \
     -e MONGO_INITDB_ROOT_PASSWORD=password \
     -v $(pwd)/keyfile:/keyfile \
