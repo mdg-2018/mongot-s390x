@@ -13,7 +13,7 @@ storage:
 
 # where to write logging data.
 systemLog:
-  verboxity: 1
+  verbosity: 1
 
 # network interfaces
 net:
