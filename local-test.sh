@@ -15,7 +15,7 @@ if [ "$1" == "start" ]; then
     -e MONGO_INITDB_ROOT_PASSWORD=password \
     -v $(pwd)/keyfile:/keyfile:ro,Z \
     -v $(pwd)/local-test-mongod-config.yaml:/etc/mongod.conf:ro,Z \
-    mongodb-enterprise-server:8.3
+    mongodb-enterprise-server:8.3.7
 
     # Write root password file to be mounted in mongot
     echo "password" > ./mongodb-enterprise-root-password

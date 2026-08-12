@@ -7,3 +7,14 @@ search:
   version: 1.70.1
   envoyImage: envoyproxy/envoy:v1.37-latest
   metricsForwarderImage: otel/opentelemetry-collector-contrib:0.152.0
+
+# registry:
+#   database: registry.lab
+
+mongodb:
+  name: mongodb-enterprise-server
+  repo: registry.lab
+  appdbAssumeOldFormat: false
+
+operator:
+  mdbDefaultArchitecture: static
